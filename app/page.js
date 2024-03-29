@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import Galleryimg from "./(components)/Galleryimg";
 import Review from "./(components)/Review";
+
 const images = ['/Hero.jpg', '/Hero2.jpg','/randombild_unsplash1.jpg','/randombild_unsplash2.jpg']
 const gal_img = ['/deniz.jpg','img1.jpg','img2.jpg']
 const gal_img2 = ['img3.jpg','img4.jpg','img5.jpg']
@@ -12,12 +13,12 @@ const gal_img5= ['img6.jpg','img12.jpg','img2.jpg']
 const gal_img6= ['img13.jpg','img3.jpg','img5.jpg']
 
 
-const comments = [ {imgUrl: 'profilbild.png' , name: 'Mike Wagner', comment:" Ein Ausgezeichneter Salon hier im schönen Ahlen Ambiente und Friseur in meinem Falle Herrenschnitt Perfekt. Mein Schnitt sorgfältig und ein Zauber von Oz 🤭😉 Lieben Dank für einen tollen Schnitt, ich komme sehr gerne wieder.", stars: 5},
-                  {imgUrl: 'profilbild2.png' , name: 'Nadja Schleinat', comment:"Mike ich danke dir für heute. Du hast super Arbeit gemacht. Vielen lieben Dank", stars: 5},
-                  {imgUrl: 'profilbild3.png' , name: 'Detlev Kroll', comment:"Top Bedienung , professionelle Frisuren. Faire Preise. Ich bin und bleibe Stammkunde!!!👍Super Öffnungszeiten für Berufstätige Dienstag bis Freitag bis 20.00 Uhr", stars: 5},
-                  {imgUrl: 'profilbild4.png' , name: 'Mandy Splett', comment:"Super Ergebnisse und sehr nettes Personal", stars: 5},
-                  {imgUrl: 'profilbild6.png' , name: 'Deniz Cidik', comment:"Super Friseur. Der Ozan hat Ahnung, wie man Haare schneidet. Respekt.", stars: 5},
-                  {imgUrl: 'profilbil5.png' , name: 'Phil Baumann', comment:"Bester Friseur den ich bis jetzt hatte.Danke dafür", stars: 5},]
+const comments = [ {key:1,imgUrl: 'profilbild.png' , name: 'Mike Wagner', comment:" Ein Ausgezeichneter Salon hier im schönen Ahlen Ambiente und Friseur in meinem Falle Herrenschnitt Perfekt. Mein Schnitt sorgfältig und ein Zauber von Oz 🤭😉 Lieben Dank für einen tollen Schnitt, ich komme sehr gerne wieder.", stars: 5},
+                  {key:2,imgUrl: 'profilbild2.png' , name: 'Nadja Schleinat', comment:"Mike ich danke dir für heute. Du hast super Arbeit gemacht. Vielen lieben Dank", stars: 5},
+                  {key:3,imgUrl: 'profilbild3.png' , name: 'Detlev Kroll', comment:"Top Bedienung , professionelle Frisuren. Faire Preise. Ich bin und bleibe Stammkunde!!!👍Super Öffnungszeiten für Berufstätige Dienstag bis Freitag bis 20.00 Uhr", stars: 5},
+                  {key:4,imgUrl: 'profilbild4.png' , name: 'Mandy Splett', comment:"Super Ergebnisse und sehr nettes Personal", stars: 5},
+                  {key:5,imgUrl: 'profilbild6.png' , name: 'Deniz Cidik', comment:"Super Friseur. Der Ozan hat Ahnung, wie man Haare schneidet. Respekt.", stars: 5},
+                  {key:6,imgUrl: 'profilbil5.png' , name: 'Phil Baumann', comment:"Bester Friseur den ich bis jetzt hatte.Danke dafür", stars: 5},]
 
 
 
@@ -87,9 +88,8 @@ export default function Home() {
         <div className="mt-40">
           <h1 className="text-4xl mb-20 text-center">Rezensionen</h1>
         <div className=" h-[400px] mx-auto  flex justify-between gap-[900px]">
-          {comments.map((item) => <div><Review imgUrl={item.imgUrl} name={item.name} comment={item.comment} stars={item.stars}/> </div>)}
+          {comments.map((item) => <div><Review key={item.key} imgUrl={item.imgUrl} name={item.name} comment={item.comment} stars={item.stars}/> </div>)}
         </div>
-
         </div>
 
 

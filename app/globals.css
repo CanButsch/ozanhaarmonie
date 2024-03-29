@@ -3,7 +3,6 @@
 @tailwind utilities;
 
 
-
 @layer base {
 
 
@@ -61,7 +60,7 @@
   }
 
   body {
-    @apply bg-[#231f20] text-white min-[1250px]:text-xl relative
+    @apply bg-[#231f20] text-white min-[1250px]:text-xl relative font-playfair
   }
   tr:nth-child(1) {
     @apply text-left

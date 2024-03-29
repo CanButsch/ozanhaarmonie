@@ -1,9 +1,7 @@
-import { Playfair } from "next/font/google";
 import "./globals.css";
 import Navbar from "./(components)/Navbar";
 import Footer from "./(components)/Footer";
 
-const playfair = Playfair({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Haarmonie By Oz",
@@ -13,7 +11,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="de-DE">
-      <body className={playfair.className}>
+      <body >
       <Navbar/>
         {children}
       <Footer />
