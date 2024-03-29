@@ -1,113 +1,98 @@
+'use client'
+import { useState, useEffect } from "react";
 import Image from "next/image";
+import Galleryimg from "./(components)/Galleryimg";
+import Review from "./(components)/Review";
+const images = ['/Hero.jpg', '/Hero2.jpg','/randombild_unsplash1.jpg','/randombild_unsplash2.jpg']
+const gal_img = ['/deniz.jpg','img1.jpg','img2.jpg']
+const gal_img2 = ['img3.jpg','img4.jpg','img5.jpg']
+const gal_img3= ['img6.jpg','img7.jpg','img8.jpg']
+const gal_img4 = ['img10.jpg','img11.jpg','img12.jpg','img13.jpg']
+const gal_img5= ['img6.jpg','img12.jpg','img2.jpg']
+const gal_img6= ['img13.jpg','img3.jpg','img5.jpg']
+
+
+const comments = [ {imgUrl: 'profilbild.png' , name: 'Mike Wagner', comment:" Ein Ausgezeichneter Salon hier im schönen Ahlen Ambiente und Friseur in meinem Falle Herrenschnitt Perfekt. Mein Schnitt sorgfältig und ein Zauber von Oz 🤭😉 Lieben Dank für einen tollen Schnitt, ich komme sehr gerne wieder.", stars: 5},
+                  {imgUrl: 'profilbild2.png' , name: 'Nadja Schleinat', comment:"Mike ich danke dir für heute. Du hast super Arbeit gemacht. Vielen lieben Dank", stars: 5},
+                  {imgUrl: 'profilbild3.png' , name: 'Detlev Kroll', comment:"Top Bedienung , professionelle Frisuren. Faire Preise. Ich bin und bleibe Stammkunde!!!👍Super Öffnungszeiten für Berufstätige Dienstag bis Freitag bis 20.00 Uhr", stars: 5},
+                  {imgUrl: 'profilbild4.png' , name: 'Mandy Splett', comment:"Super Ergebnisse und sehr nettes Personal", stars: 5},
+                  {imgUrl: 'profilbild6.png' , name: 'Deniz Cidik', comment:"Super Friseur. Der Ozan hat Ahnung, wie man Haare schneidet. Respekt.", stars: 5},
+                  {imgUrl: 'profilbil5.png' , name: 'Phil Baumann', comment:"Bester Friseur den ich bis jetzt hatte.Danke dafür", stars: 5},]
+
+
 
 export default function Home() {
+  const [currentImage, setCurrentImage] = useState(images[0]);
+  const [currentGalImage, setCurrentGalImage] = useState(gal_img[0])
+  const [currentGalImage1, setCurrentGalImage1] = useState(gal_img2[2])
+  const [currentGalImage2, setCurrentGalImage2] = useState(gal_img3[1])
+  const [currentGalImage3, setCurrentGalImage3] = useState(gal_img4[3])
+  const [currentGalImage4, setCurrentGalImage4] = useState(gal_img5[2])
+  const [currentGalImage5, setCurrentGalImage5] = useState(gal_img6[0])
+
+  useEffect(() => {
+      const intervalId = setInterval(() => {
+          setCurrentImage(images[Math.floor(Math.random() * images.length)]);
+      }, 5000)
+      
+      const intervalId2 = setInterval(() => {
+        setCurrentGalImage(gal_img[Math.floor(Math.random() * gal_img.length)]);
+      }, 4000)
+      const intervalId3 = setInterval(() => {
+        setCurrentGalImage1(gal_img2[Math.floor(Math.random() * gal_img2.length)]);
+      }, 6000)
+      const intervalId4 = setInterval(() => {
+        setCurrentGalImage2(gal_img3[Math.floor(Math.random() * gal_img3.length)]);
+      }, 2000)
+      const intervalId5 = setInterval(() => {
+        setCurrentGalImage3(gal_img4[Math.floor(Math.random() * gal_img4.length)]);
+      }, 4000)
+      const intervalId6 = setInterval(() => {
+        setCurrentGalImage4(gal_img5[Math.floor(Math.random() * gal_img5.length)]);
+      }, 8000)
+      const intervalId7 = setInterval(() => {
+        setCurrentGalImage5(gal_img6[Math.floor(Math.random() * gal_img6.length)]);
+      }, 12000)
+     
+
+      return () => clearInterval(intervalId), () => clearInterval(intervalId2), () => clearInterval(intervalId3),() => clearInterval(intervalId4),() => clearInterval(intervalId5),() => clearInterval(intervalId6),() => clearInterval(intervalId7);
+  }, [])
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">app/page.js</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <main className="main">
+        <div className="img__container relative mx-auto max-w-[1240px] h-[600px] max-[500px]:h-[500px]">
+          <Image src={currentImage} fill className='absolute w-full h-full object-cover'/>
+          <div className="absolute flex flex-col w-full h-full bg-transparent top-[50%] text-center gap-6 text-4xl"><h1 className="bg-transparent">Willkommen bei Haarmonie by Oz</h1> <h1 className="text-xl bg-transparent px-2">Ihr Spezialist für Frisuren und Kosmetik in Ahlen.</h1></div>
         </div>
-      </div>
+        {/* Wer sind wir? */}
+        <div className="about-us__container flex flex-col justify-center items-center gap-10 px-4 pt-10 mx-auto max-w-[1240px]">
+          <h1 className="text-4xl">Über uns</h1>
+          <div className="flex flex-col gap-2">
+            <p className="text-xl">Wir sind Haarmonie by Oz, wo Schönheit und Wohlbefinden Hand in Hand gehen! </p>
+            <p className="text-xl">Vom Schnitt zur Coloration über die Kosmetik bis zur Haarpflege bieten wir alles an.<br/> Auch für besondere Anlässe!</p>
+            </div>
+        </div>
+        {/* Gallery */}
+        <div className="container max-w-[1240px] mx-auto mt-10">
+          <h1 className="text-4xl p-10 text-center">Gallerie</h1>
+        <div className="gallery__container gap-6 grid grid-cols-3 max-[600px]:grid-cols-2 mx-4">
+            <Galleryimg imageUrl={currentGalImage}/>
+            <Galleryimg imageUrl={currentGalImage1}/>
+            <Galleryimg imageUrl={currentGalImage2}/>
+            <Galleryimg imageUrl={currentGalImage3}/>
+            <Galleryimg imageUrl={currentGalImage4}/>
+            <Galleryimg imageUrl={currentGalImage5}/>
+        </div>
+        </div>
+        <div className="mt-40">
+          <h1 className="text-4xl mb-20 text-center">Rezensionen</h1>
+        <div className=" h-[400px] mx-auto  flex justify-between gap-[900px]">
+          {comments.map((item) => <div><Review imgUrl={item.imgUrl} name={item.name} comment={item.comment} stars={item.stars}/> </div>)}
+        </div>
 
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-full sm:before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full sm:after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+        </div>
 
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800 hover:dark:bg-opacity-30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50 text-balance`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
     </main>
   );
 }
