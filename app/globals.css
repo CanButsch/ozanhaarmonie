@@ -6,6 +6,20 @@
 @layer base {
 
 
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  .animate-fadeIn {
+    animation: fadeIn 5s ease-in-out infinite;
+  }
+  
+
 
   .animated-border {
     @apply  border-transparent border-solid border-2 relative animate-animateBorder
@@ -44,12 +58,12 @@
       transform: translateX(-200%); /* Anfangsposition (links außerhalb des Bildschirms) */
     }
     100% {
-      transform: translateX(200%); /* Endposition (rechts außerhalb des Bildschirms) */
+      transform: translateX(0%); /* Endposition (rechts außerhalb des Bildschirms) */
     }
   }
   
   .animate-moveLeftToRight {
-    animation: moveLeftToRight 20s linear infinite; /* Dauer und Timing der Animation anpassen */
+    animation: moveLeftToRight 3s linear; /* Dauer und Timing der Animation anpassen */
   }
 
 

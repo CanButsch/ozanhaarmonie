@@ -3,7 +3,6 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import Galleryimg from "./(components)/Galleryimg";
 import Review from "./(components)/Review";
-import CookieConsentView from "./(components)/CookieConsentView";
 const images = ['/Hero.jpg', '/Hero2.jpg','/randombild_unsplash1.jpg','/randombild_unsplash2.jpg']
 const gal_img = ['/deniz.jpg','img1.jpg','img2.jpg']
 const gal_img2 = ['img3.jpg','img4.jpg','img5.jpg']
@@ -18,7 +17,7 @@ const comments = [ {key:1,imgUrl: 'profilbild.png' , name: 'Mike Wagner', commen
                   {key:3,imgUrl: 'profilbild3.png' , name: 'Detlev Kroll', comment:"Top Bedienung , professionelle Frisuren. Faire Preise. Ich bin und bleibe Stammkunde!!!👍Super Öffnungszeiten für Berufstätige Dienstag bis Freitag bis 20.00 Uhr", stars: 5},
                   {key:4,imgUrl: 'profilbild4.png' , name: 'Mandy Splett', comment:"Super Ergebnisse und sehr nettes Personal", stars: 5},
                   {key:5,imgUrl: 'profilbild6.png' , name: 'Deniz Cidik', comment:"Super Friseur. Der Ozan hat Ahnung, wie man Haare schneidet. Respekt.", stars: 5},
-                  {key:6,imgUrl: 'profilbil5.png' , name: 'Phil Baumann', comment:"Bester Friseur den ich bis jetzt hatte.Danke dafür", stars: 5},]
+                  {key:6,imgUrl: 'profilbild5.png' , name: 'Phil Baumann', comment:"Bester Friseur den ich bis jetzt hatte.Danke dafür", stars: 5},]
 
 
 
@@ -31,11 +30,18 @@ export default function Home() {
   const [currentGalImage3, setCurrentGalImage3] = useState(gal_img4[3])
   const [currentGalImage4, setCurrentGalImage4] = useState(gal_img5[2])
   const [currentGalImage5, setCurrentGalImage5] = useState(gal_img6[0])
+  const [currentReview, setCurrentReview] = useState(comments[0])
 
   useEffect(() => {
       const intervalId = setInterval(() => {
           setCurrentImage(images[Math.floor(Math.random() * images.length)]);
+          setCurrentReview(comments[Math.floor(Math.random() * comments.length)]);
+          
       }, 5000)
+      const intervalIdRev = setInterval(() => {
+          setCurrentReview(comments[Math.floor(Math.random() * 6)]);
+          
+      }, 3500)
       
       const intervalId2 = setInterval(() => {
         setCurrentGalImage(gal_img[Math.floor(Math.random() * gal_img.length)]);
@@ -57,7 +63,7 @@ export default function Home() {
       }, 12000)
      
 
-      return () => clearInterval(intervalId), () => clearInterval(intervalId2), () => clearInterval(intervalId3),() => clearInterval(intervalId4),() => clearInterval(intervalId5),() => clearInterval(intervalId6),() => clearInterval(intervalId7);
+      return () => clearInterval(intervalIdRev) ,() => clearInterval(intervalId), () => clearInterval(intervalId2), () => clearInterval(intervalId3),() => clearInterval(intervalId4),() => clearInterval(intervalId5),() => clearInterval(intervalId6),() => clearInterval(intervalId7);
   }, [])
 
   return (
@@ -88,8 +94,9 @@ export default function Home() {
         </div>
         <div className="mt-40">
           <h1 className="text-4xl mb-20 text-center">Rezensionen</h1>
-        <div className=" h-[400px] mx-auto  flex justify-between gap-[900px]">
-          {comments.map((item) => <div key={item.key}><Review imgUrl={item.imgUrl} name={item.name} comment={item.comment} stars={item.stars}/> </div>)}
+        <div className=" max-w-[1240px] h-[400px] mx-auto flex items-center justify-center gap-[900px]">
+          {/*comments.map((item) => <div key={item.key}><Review imgUrl={item.imgUrl} name={item.name} comment={item.comment} stars={item.stars}/> </div>)*/}
+          <div className="animate-moveLeftToRight"><div className="animate-fadeIn"><Review imgUrl={currentReview.imgUrl} name={currentReview.name} comment={currentReview.comment} stars={currentReview.stars}/> </div></div>
         </div>
         </div>
     </main>

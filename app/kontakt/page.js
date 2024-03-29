@@ -17,7 +17,7 @@ const page = () => {
           <h1 className='text-4xl'>Anfahrt</h1>
           <h1 className='text-xl'>So finden sie uns</h1>
           <div className='w-full h-96'>
-          {/*<iframe className='w-full h-full px-4' src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4277.684995815504!2d7.885010694539567!3d51.75989487011765!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b99d8c8bcc13bb%3A0x554b982010959ad7!2sHaarmonie%20by%20OZ!5e0!3m2!1sde!2sde!4v1711575296440!5m2!1sde!2sde" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>*/}
+          {<iframe className='w-full h-full px-4' src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4277.684995815504!2d7.885010694539567!3d51.75989487011765!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b99d8c8bcc13bb%3A0x554b982010959ad7!2sHaarmonie%20by%20OZ!5e0!3m2!1sde!2sde!4v1711575296440!5m2!1sde!2sde" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>}
           </div>
         </div>
         <div className='flex flex-col gap-4 mt-10 items-center '>
