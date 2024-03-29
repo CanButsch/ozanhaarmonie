@@ -88,7 +88,7 @@ export default function Home() {
         <div className="mt-40">
           <h1 className="text-4xl mb-20 text-center">Rezensionen</h1>
         <div className=" h-[400px] mx-auto  flex justify-between gap-[900px]">
-          {comments.map((item) => <div><Review key={item.key} imgUrl={item.imgUrl} name={item.name} comment={item.comment} stars={item.stars}/> </div>)}
+          {comments.map((item) => <div key={item.key}><Review imgUrl={item.imgUrl} name={item.name} comment={item.comment} stars={item.stars}/> </div>)}
         </div>
         </div>
 
