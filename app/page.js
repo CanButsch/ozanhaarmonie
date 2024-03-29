@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import Galleryimg from "./(components)/Galleryimg";
 import Review from "./(components)/Review";
-
+import CookieConsentView from "./(components)/CookieConsentView";
 const images = ['/Hero.jpg', '/Hero2.jpg','/randombild_unsplash1.jpg','/randombild_unsplash2.jpg']
 const gal_img = ['/deniz.jpg','img1.jpg','img2.jpg']
 const gal_img2 = ['img3.jpg','img4.jpg','img5.jpg']
@@ -23,6 +23,7 @@ const comments = [ {key:1,imgUrl: 'profilbild.png' , name: 'Mike Wagner', commen
 
 
 export default function Home() {
+
   const [currentImage, setCurrentImage] = useState(images[0]);
   const [currentGalImage, setCurrentGalImage] = useState(gal_img[0])
   const [currentGalImage1, setCurrentGalImage1] = useState(gal_img2[2])
@@ -91,8 +92,6 @@ export default function Home() {
           {comments.map((item) => <div key={item.key}><Review imgUrl={item.imgUrl} name={item.name} comment={item.comment} stars={item.stars}/> </div>)}
         </div>
         </div>
-
-
     </main>
   );
 }
