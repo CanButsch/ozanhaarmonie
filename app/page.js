@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import Galleryimg from "./(components)/Galleryimg";
 import Review from "./(components)/Review";
+import CookieConsent from "react-cookie-consent";
 const images = ['/Hero.jpg', '/Hero2.jpg','/randombild_unsplash1.jpg','/randombild_unsplash2.jpg']
 const gal_img = ['/deniz.jpg','img1.jpg','img2.jpg']
 const gal_img2 = ['img3.jpg','img4.jpg','img5.jpg']
@@ -22,7 +23,7 @@ const comments = [ {key:1,imgUrl: 'profilbild.png' , name: 'Mike Wagner', commen
 
 
 export default function Home() {
-
+  const [showGMap, setShowGMap] = useState(false)
   const [currentImage, setCurrentImage] = useState(images[0]);
   const [currentGalImage, setCurrentGalImage] = useState(gal_img[0])
   const [currentGalImage1, setCurrentGalImage1] = useState(gal_img2[2])
@@ -31,6 +32,16 @@ export default function Home() {
   const [currentGalImage4, setCurrentGalImage4] = useState(gal_img5[2])
   const [currentGalImage5, setCurrentGalImage5] = useState(gal_img6[0])
   const [currentReview, setCurrentReview] = useState(comments[0])
+
+  function handleAccept () {
+    setShowGMap(true)
+    window.location.reload();
+  }
+
+  function handleDecline () {
+    setShowGMap(false)
+    window.location.reload();
+  }
 
   useEffect(() => {
       const intervalId = setInterval(() => {
@@ -99,6 +110,18 @@ export default function Home() {
           <div className="animate-moveLeftToRight"><div className="animate-fadeIn"><Review imgUrl={currentReview.imgUrl} name={currentReview.name} comment={currentReview.comment} stars={currentReview.stars}/> </div></div>
         </div>
         </div>
+        <CookieConsent
+        location="bottom"
+        buttonText="Ich stimme zu"
+        cookieName="cookieConsent"
+        expires={365}
+        onAccept={handleAccept}
+        onDecline={handleDecline}
+        declineButtonText="Ablehnen"
+        enableDeclineButton="true"
+      >
+        Diese Webseite verwendet Cookies, um Google Maps einzubetten. Weitere Infos unter <a className="underline font-bold" href="/datenschutz">Datenschutz.</a>
+      </CookieConsent>
     </main>
   );
 }

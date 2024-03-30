@@ -1,5 +1,4 @@
 import React from 'react'
-
 const page = () => {
   return (
     <div className='max-w-[1240px] mx-auto gap-10 mt-40 flex flex-col h-full mb-40'>
@@ -20,7 +19,7 @@ const page = () => {
             <li className='flex gap-2 items-center'><span className='number_font'>Bildnachweis: <a href="https://www.pexels.com/">Pexels</a> und <a href="https://unsplash.com/">Unsplash</a></span></li>
             </ul>
         </div>
-
+        
     </div>
   )
 }

@@ -1,5 +1,5 @@
 import React from 'react'
-
+import Cookie from 'js-cookie'
 const page = () => {
   return (
     <div className='max-w-[1240px] mx-auto flex flex-col bg justify-center items-center'>
@@ -374,7 +374,7 @@ const page = () => {
         </div>
 
 
-        
+
 
         </div>
   )
