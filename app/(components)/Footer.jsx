@@ -19,7 +19,7 @@ const Footer = () => {
     <div className='max-w-[1240px] mx-auto flex flex-col gap-6  max-[760px]:text-xl'>
         <div className='flex max-[760px]:flex-col justify-between px-4 mt-14'>
             <div className='kontakt__container flex flex-col gap-4 max-[760px]:items-center'>
-                <div><h1 className='text-center text-3xl'>Kontakt</h1></div>
+                <div><h1 className='text-center text-2xl'>Kontakt</h1></div>
                 <div className='kontakt__items'>
                     <ul>
                         <li className='flex gap-2 items-center'><span><GiPositionMarker/></span><span>Oststraße <span className='number_font'>48</span>, <span className='number_font'>59227</span> Ahlen</span></li>
@@ -36,11 +36,11 @@ const Footer = () => {
                 </div>
             </div>
             <div className='maps__container flex flex-col gap-4 items-center'>
-            <div><h1 className='text-3xl'>Anfahrt</h1></div>
+            <div><h1 className='text-2xl'>Anfahrt</h1></div>
             {showGMap ? <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4277.684995815504!2d7.885010694539567!3d51.75989487011765!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b99d8c8bcc13bb%3A0x554b982010959ad7!2sHaarmonie%20by%20OZ!5e0!3m2!1sde!2sde!4v1711575296440!5m2!1sde!2sde" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>: <div className='bg-gray-900 p-4 h-30'>Cookies müssen akzeptiert sein um die Google Maps Karte zu sehen. <a href='https://www.google.com/maps?kgmid=/g/11h9wj13cx&hl=de-DE&kgs=a6a1a3786904cd26&shndl=30&shem=lose&um=1&ie=UTF-8&fb=1&gl=de&sa=X&geocode=KbsTzIuMnblHMdealRAgmEtV&daddr=Oststra%C3%9Fe+48,+59227+Ahlen' className='border bg-gray-600'>Navigation zu unserem Salon</a></div> }
             </div>
             <div className='zeiten__con flex flex-col gap-4 max-[760px]:pt-6 max-[760px]:items-center'>
-                <h1 className='text-center text-xl'>Öffnungszeiten</h1>
+                <h1 className='text-center text-2xl'>Öffnungszeiten</h1>
                 <ul>
                     <li className='flex justify-between gap-12'><span>Montag:</span><span>Geschlossen</span></li>
                     <li className='flex justify-between gap-12'><span>Dienstag:</span><span className='number_font text-[16px]'>09:00 - 20:00</span></li>

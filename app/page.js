@@ -4,6 +4,7 @@ import Image from "next/image";
 import Galleryimg from "./(components)/Galleryimg";
 import Review from "./(components)/Review";
 import CookieConsent from "react-cookie-consent";
+import { Html } from "next/document";
 const images = ['/Hero.jpg', '/Hero2.jpg','/randombild_unsplash1.jpg','/randombild_unsplash2.jpg']
 const gal_img = ['/deniz.jpg','img1.jpg','img2.jpg']
 const gal_img2 = ['img3.jpg','img4.jpg','img5.jpg']
@@ -44,15 +45,17 @@ export default function Home() {
   }
 
   useEffect(() => {
+
       const intervalId = setInterval(() => {
           setCurrentImage(images[Math.floor(Math.random() * images.length)]);
-          setCurrentReview(comments[Math.floor(Math.random() * comments.length)]);
-          
       }, 5000)
       const intervalIdRev = setInterval(() => {
-          setCurrentReview(comments[Math.floor(Math.random() * 6)]);
-          
-      }, 3500)
+        setCurrentReview(comments[Math.floor(Math.random() * comments.length)]);
+        let rev = document.getElementById("reviewID");
+        if (rev){
+        rev.setAttribute("class","animate-fadeIn")
+        }
+      }, 5000)
       
       const intervalId2 = setInterval(() => {
         setCurrentGalImage(gal_img[Math.floor(Math.random() * gal_img.length)]);
@@ -85,7 +88,7 @@ export default function Home() {
         </div>
         {/* Wer sind wir? */}
         <div className="about-us__container flex flex-col justify-center items-center gap-10 px-4 pt-10 mx-auto max-w-[1240px]">
-          <h1 className="text-4xl">Über uns</h1>
+          <h1 className="text-3xl">Über uns</h1>
           <div className="flex flex-col gap-2">
             <p className="text-xl">Wir sind Haarmonie by Oz, wo Schönheit und Wohlbefinden Hand in Hand gehen! </p>
             <p className="text-xl">Vom Schnitt zur Coloration über die Kosmetik bis zur Haarpflege bieten wir alles an.<br/> Auch für besondere Anlässe!</p>
@@ -93,7 +96,7 @@ export default function Home() {
         </div>
         {/* Gallery */}
         <div className="container max-w-[1240px] mx-auto mt-10">
-          <h1 className="text-4xl p-10 text-center">Gallerie</h1>
+          <h1 className="text-3xl p-10 text-center">Gallerie</h1>
         <div className="gallery__container gap-6 grid grid-cols-3 max-[600px]:grid-cols-2 mx-4">
             <Galleryimg imageUrl={currentGalImage}/>
             <Galleryimg imageUrl={currentGalImage1}/>
@@ -104,10 +107,11 @@ export default function Home() {
         </div>
         </div>
         <div className="mt-40">
-          <h1 className="text-4xl mb-20 text-center">Rezensionen</h1>
+          <h1 className="text-3xl mb-20 text-center">Rezensionen</h1>
         <div className=" max-w-[1240px] h-[400px] mx-auto flex items-center justify-center gap-[900px]">
-          {/*comments.map((item) => <div key={item.key}><Review imgUrl={item.imgUrl} name={item.name} comment={item.comment} stars={item.stars}/> </div>)*/}
-          <div className="animate-moveLeftToRight"><div className="animate-fadeIn"><Review imgUrl={currentReview.imgUrl} name={currentReview.name} comment={currentReview.comment} stars={currentReview.stars}/> </div></div>
+          {/*comments.map((item) => <div key={item.key}><Review imgUrl={item.imgUrl} name={item.name} comment={item.comment} stars={item.stars}/> </div>)*/
+          }
+          <div className="animate-moveLeftToRight"><div id='reviewID' className=""><Review imgUrl={currentReview.imgUrl} name={currentReview.name} comment={currentReview.comment} stars={currentReview.stars}/> </div></div>
         </div>
         </div>
         <CookieConsent

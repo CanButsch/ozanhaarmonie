@@ -4,7 +4,7 @@ import { FaStar } from "react-icons/fa";
 const Review = ( {imgUrl, name, comment, stars}) => {
     const iterations = Array.from({ length: stars}, (v, i) => i);
   return (
-  <div className='rev__container rounded-lg flex flex-col animated-border   bg-[#231f20]  mx-auto w-[90%] h-[350px] p-4 '>
+  <div className='rev__container rounded-lg flex flex-col border-white border-2   bg-[#231f20]  mx-auto w-[90%] h-[350px] p-4 '>
             <div className='user__container p-2 text-white text-2xl flex gap-4 justify-betwwen items-center'>
                 <img src={imgUrl} className='w-16' />
                 <h1>{name}</h1>

@@ -20,7 +20,6 @@
   }
   
 
-
   .animated-border {
     @apply  border-transparent border-solid border-2 relative animate-animateBorder
   }
